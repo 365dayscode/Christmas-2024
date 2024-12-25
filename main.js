@@ -116,7 +116,7 @@ const pixelRatio = renderer.getPixelRatio();
 
 //key 
 
-camera.position.set(0,0,4);
+camera.position.set(0,0,8);
 
 
 
