@@ -116,7 +116,7 @@ const pixelRatio = renderer.getPixelRatio();
 
 //key 
 
-camera.position.set(0,0,8);
+camera.position.set(0,0,5);
 
 
 
@@ -207,7 +207,7 @@ loader.load('assets/smoke.gltf', function(gltf) {
 
 
 const snowflakeCount = 1000;
-const radius = 3; 
+const radius = 4; 
 const positions = new Float32Array(snowflakeCount * 3);
 for (let i = 0; i < snowflakeCount; i++) {
     const [x, y, z] = randomSphericalCoordinates(radius);
