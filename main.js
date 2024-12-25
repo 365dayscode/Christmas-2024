@@ -53,7 +53,7 @@ const aspect = w / h;
 const near = 0.1;
 const far = 10;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.z = 2;
+camera.position.z = 4;
 const scene = new THREE.Scene();
 
 
@@ -263,7 +263,7 @@ scene.add(sunlo);
 
 const fogColor = new THREE.Color(0x00496f);
 scene.background = new THREE.Color(0x003255);
-scene.fog = new THREE.FogExp2(fogColor, 0.4);
+scene.fog = new THREE.FogExp2(fogColor, 0.35);
 
 // Position above and to the side, like the sun
 //sunlight1.castShadow = true;
