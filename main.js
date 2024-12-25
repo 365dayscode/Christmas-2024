@@ -207,7 +207,7 @@ loader.load('assets/smoke.gltf', function(gltf) {
 
 
 const snowflakeCount = 1000;
-const radius = 5; 
+const radius = 3; 
 const positions = new Float32Array(snowflakeCount * 3);
 for (let i = 0; i < snowflakeCount; i++) {
     const [x, y, z] = randomSphericalCoordinates(radius);
