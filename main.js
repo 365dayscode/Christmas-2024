@@ -251,11 +251,15 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 2);
 scene.add(ambientLight);
 
 // fog ------------------------------
-const sunlo = new THREE.DirectionalLight(0xffde79,3, 60, 90);
-sunlo.rotation.y=20;
-sunlo.position.set(0,5,3);
+const sunlo = new THREE.DirectionalLight(0x4be7fd,10, 3, 9);
+sunlo.rotation.y=0;
+sunlo.position.set(3,8,3);
 scene.add(sunlo);
 
+const sunlo2 = new THREE.DirectionalLight(0xfaa20d,20, 3, 9);
+sunlo2.rotation.y=180;
+sunlo2.position.set(0,-8,0);
+scene.add(sunlo2);
 
 //bgsky
 
