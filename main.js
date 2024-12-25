@@ -114,20 +114,7 @@ const pixelRatio = renderer.getPixelRatio();
 //compos.addPass(fxxass);
 
 
-//key glitch
-
-
-
-
-// Event listener for mouse movement
-document.addEventListener("mousemove", (event) => {
-  // Store the raw screen coordinates in variables
-  modx = event.clientX/window.innerWidth;
-  
-
-  // Log the values (optional)
- 
-});
+//key 
 
 camera.position.set(0,0,1);
 
@@ -165,7 +152,7 @@ controls.target.set(0,0,0);
 //fog 
 
 
-// fog end
+
 
 
 
@@ -191,7 +178,7 @@ loader.load('assets/bol.gltf', function(gltf) {
         }
     });
 
-    gltf.scene.scale.set(0.5, 0.5, 0.5);
+    gltf.scene.scale.set(1, 1, 1);
     gltf.scene.position.set(0, 0, 0);
 
    
@@ -206,7 +193,7 @@ loader.load('assets/smoke.gltf', function(gltf) {
 
 
 
-    gltf.scene.scale.set(0.5, 0.5, 0.5);
+    gltf.scene.scale.set(1, 1, 1);
     gltf.scene.position.set(0, 0, 0);
 
 
@@ -234,10 +221,10 @@ const snowflakeGeometry = new THREE.IcosahedronGeometry(0.2,5);
 snowflakeGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
 const snowflakeMaterial = new THREE.PointsMaterial({
-    color: 0xffffff,    // Snowflake color
+    color: 0xffffff,    
     size: 0.03,          
-    transparent: true,  // Allows particles to blend with background
-    opacity: 0.7         // Semi-transparent for better effect
+    transparent: true,  
+    opacity: 0.7         
 });
 
 const snowflakeSystem = new THREE.Points(snowflakeGeometry, snowflakeMaterial);
@@ -245,8 +232,8 @@ scene.add(snowflakeSystem);
 
 // Random Spherical Coordinates
 function randomSphericalCoordinates(radius) {
-    const theta = Math.random() * Math.PI * 2; // Random angle in the xy-plane
-    const phi = Math.acos(2 * Math.random() - 1); // Random angle in the polar direction
+    const theta = Math.random() * Math.PI * 2; 
+    const phi = Math.acos(2 * Math.random() - 1); 
     const x = radius * Math.sin(phi) * Math.cos(theta);
     const y = radius * Math.sin(phi) * Math.sin(theta);
     const z = radius * Math.cos(phi);
@@ -260,7 +247,7 @@ const poin = new THREE.PointLight(0xf2007a, 280, 100);
 poin.position.set(1,-4, 3);
 //scene.add(poin);
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 2); // Soft white light
+const ambientLight = new THREE.AmbientLight(0xffffff, 2); 
 scene.add(ambientLight);
 
 // fog ------------------------------
@@ -276,7 +263,7 @@ scene.add(sunlo);
 
 const fogColor = new THREE.Color(0x00496f);
 scene.background = new THREE.Color(0x003255);
-scene.fog = new THREE.FogExp2(fogColor, 0.38);
+scene.fog = new THREE.FogExp2(fogColor, 0.4);
 
 // Position above and to the side, like the sun
 //sunlight1.castShadow = true;
@@ -293,7 +280,7 @@ hei.position.set(0,-6,0);
 scene.add(hei);
 
 fxxass.material.uniforms['resolution'].value.x = 1 / window.innerWidth;
-  fxxass.material.uniforms['resolution'].value.y = 1/ window.innerHeight;
+fxxass.material.uniforms['resolution'].value.y = 1/ window.innerHeight;
 
 const clock = new THREE.Clock();
 
@@ -304,13 +291,13 @@ function animate() {
     
     const positions = snowflakeSystem.geometry.attributes.position.array;
     for (let i = 0; i < snowflakeCount; i++) {
-        positions[i * 3 + 1] -= 0.05; // Move particles down slowly
+        positions[i * 3 + 1] -= 0.09; 
         if (positions[i * 3 + 1] < -radius) {
-            // Reset particles when they go off-screen
+            
             const [x, y, z] = randomSphericalCoordinates(radius);
             positions[i * 3 + 0] = x;
-            positions[i * 3 + 1] = radius; // Reset y position to top
-            positions[i * 3 + 2] = z;
+            positions[i * 2 + 1] = radius; // Reset y position to top
+            positions[i * 2 + 2] = z;
         }
     }
     snowflakeSystem.geometry.attributes.position.needsUpdate = true;
