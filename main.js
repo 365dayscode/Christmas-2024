@@ -46,7 +46,7 @@ const renderer = new THREE.WebGLRenderer({
 
 });
 renderer.setSize(w,h);
-renderer.setPixelRatio(2);
+renderer.setPixelRatio(3);
 document.body.appendChild(renderer.domElement);
 const fov = 75;
 const aspect = w / h;
@@ -59,9 +59,9 @@ const scene = new THREE.Scene();
 
 const renderScene = new RenderPass(scene, camera);
 const bloomPass = new UnrealBloomPass(new THREE.Vector2(w,h),1.5,0.1);
-bloomPass.threshold =0.6;
+bloomPass.threshold =2;
 bloomPass.strength=0.2;
-bloomPass.radius=0.4;
+bloomPass.radius=0.000005;
 const compos = new EffectComposer(renderer);
 compos.addPass(renderScene);
 compos.addPass(bloomPass);
@@ -173,7 +173,7 @@ loader.load('assets/bol.gltf', function(gltf) {
         if (node.isMesh && node.material && node.material.isMeshStandardMaterial) {
             node.material.roughness = 0.8;
             node.material.metalness = 0;
-            node.material.emissiveIntensity = 30;
+            node.material.emissiveIntensity = 20;
             node.material.needsUpdate = true;
         }
     });
