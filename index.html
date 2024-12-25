@@ -29,13 +29,46 @@
 
   </head>
   <body>
+    
+    
 	  
 
 
 
-    <body oncontextmenu="return false;">
+    
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="assets/Jingl.mp3" >
+        
+    </audio>
+
+    <script>
       
-    </body>
+      document.body.addEventListener('touchend', () => {
+    audio.play().catch((error) => {
+        console.error('Autoplay prevented:', error);
+    });
+}, { once: true });
+
+        const audio = document.getElementById('backgroundMusic');
+
+        
+        audio.addEventListener('canplay', () => {
+            audio.play().catch((error) => {
+                console.error('Playback prevented:', error);
+            });
+        });
+
+      
+        audio.addEventListener('play', () => console.log('Audio is playing'));
+        audio.addEventListener('pause', () => console.log('Audio is paused'));
+
+        
+        audio.volume = 0.5;
+    </script>
+
+
+
+
 
 
 
