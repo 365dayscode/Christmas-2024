@@ -179,7 +179,7 @@ const loader = new GLTFLoader(loadingManager);
 const mixers = [];
 loader.setDRACOLoader(dLoader);
 
-loader.load('assets/models/bol.gltf', function(gltf) {
+loader.load('assets/bol.gltf', function(gltf) {
     scene.add(gltf.scene);
 
     gltf.scene.traverse((node) => {
@@ -201,7 +201,7 @@ loader.load('assets/models/bol.gltf', function(gltf) {
 
 
 
-loader.load('assets/models/smoke.gltf', function(gltf) {
+loader.load('assets/smoke.gltf', function(gltf) {
     scene.add(gltf.scene);
 
 
