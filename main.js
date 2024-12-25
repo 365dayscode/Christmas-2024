@@ -142,7 +142,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 
 controls.enableDamping = true
-controls.dampingFactor = 0.1;
+controls.dampingFactor = 0.01;
 controls.enableZoom = true;
 
 
